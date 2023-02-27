@@ -37,7 +37,7 @@ class FormContact extends Component {
         validationSchema={schema}
         onSubmit={this.onSubmit}
       >
-        <ContactForm autoComplete="off">
+        <ContactForm autoComplete="on">
           <LabelForm htmlFor="name">
             Name
             <InputForm type="text" name="name"></InputForm>

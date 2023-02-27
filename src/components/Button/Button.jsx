@@ -11,6 +11,6 @@ export const Button = ({ type = 'button', icon: Icon = null, children }) => {
 };
 
 Button.propTypes = {
-  icon: PropTypes.node,
-  children: PropTypes.node,
+  Icon: PropTypes.node,
+  children: PropTypes.node.isRequired,
 }

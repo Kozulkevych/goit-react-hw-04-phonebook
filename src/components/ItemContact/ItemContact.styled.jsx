@@ -12,6 +12,7 @@ export const Text = styled.p`
   font-weight: ${p => p.theme.fontWeights.normal};
   font-family: ${p => p.theme.fonts.heading};
   padding: ${p => p.theme.space[2]}px;
+  line-height: ${p => p.theme.lineHeights.body};
 `;
 
 export const ButtonDelete = styled.button`

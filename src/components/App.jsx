@@ -3,27 +3,27 @@ import { nanoid } from 'nanoid';
 import FormContact from './FormContact/FormContact';
 import FilterContacts from './FilterContacts/FilterContacts';
 import ListContacts from './ListContacts/ListContacts';
-import data from '../data/data';
 import { TitlePrimary, TitleSecondary, Text } from './App.styled';
 import Box from './Box/Box';
 
-const CONTACTS_KEY = 'contacts';
+const CONTACTS_KEY = "contacts";
 export class App extends Component {
   state = {
-    contacts: data,
+    contacts: [],
     filter: '',
   };
 
   componentDidMount() {
     const localData = localStorage.getItem(CONTACTS_KEY);
     if (localData) {
-      this.setState({ contacts: JSON.parsel(localData) });
+      this.setState({ contacts: JSON.parse(localData) });
     }
   }
 
   componentDidUpdate(_, prevState) {
-    if (this.state.contacts!== prevState.contacts) {
-      localStorage.setItem(CONTACTS_KEY, JSON.stringify(this.state.contacts));
+    const { contacts } = this.state;
+    if (contacts!== prevState.contacts) {
+      localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
     }
   }
 
