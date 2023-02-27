@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -6,7 +5,7 @@ import { ContactForm, LabelForm, InputForm, Error } from './FormContact.styled';
 import { Button } from '../Button/Button';
 import { MdPersonAdd } from 'react-icons/md';
 
-const initialValues = {
+const INITIAL_VALUES = {
   name: '',
   number: '',
 };
@@ -24,41 +23,36 @@ const schema = Yup.object().shape({
     .min(7, 'Too Short!'),
 });
 
-class FormContact extends Component {
-  onSubmit = (values, { resetForm }) => {
-    this.props.onSubmit(values);
+export default function FormContact({ onSubmit }) {
+  const handleSubmit = (values, { resetForm }) => {
+    onSubmit(values);
     resetForm();
   };
-
-  render() {
-    return (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={this.onSubmit}
-      >
-        <ContactForm autoComplete="on">
-          <LabelForm htmlFor="name">
-            Name
-            <InputForm type="text" name="name"></InputForm>
-            <Error name="name" component="div" />
-          </LabelForm>
-          <LabelForm htmlFor="number">
-            Number
-            <InputForm type="tel" name="number"></InputForm>
-            <Error name="number" component="div" />
-          </LabelForm>
-          <Button type="submit" icon={MdPersonAdd}>
-            Add contact
-          </Button>
-        </ContactForm>
-      </Formik>
-    );
-  }
+  return (
+    <Formik
+      initialValues={INITIAL_VALUES}
+      validationSchema={schema}
+      onSubmit={handleSubmit}
+    >
+      <ContactForm autoComplete="on">
+        <LabelForm htmlFor="name">
+          Name
+          <InputForm type="text" name="name"></InputForm>
+          <Error name="name" component="div" />
+        </LabelForm>
+        <LabelForm htmlFor="number">
+          Number
+          <InputForm type="tel" name="number"></InputForm>
+          <Error name="number" component="div" />
+        </LabelForm>
+        <Button type="submit" icon={MdPersonAdd}>
+          Add contact
+        </Button>
+      </ContactForm>
+    </Formik>
+  );
 }
 
 FormContact.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
-
-export default FormContact;
