@@ -16,7 +16,7 @@ export const Text = styled.p`
   margin: ${p => p.theme.space[0]};
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};
-  font-family: ${p => p.theme.fonts.body};
+  font-family: ${p => p.theme.fonts.heading};
   padding: ${p => p.theme.space[2]}px;
   line-height: ${p => p.theme.lineHeights.body};
 `;
