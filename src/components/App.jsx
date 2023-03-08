@@ -42,6 +42,8 @@ export function App() {
     );
   };
 
+  const filteredContacts = onFilterContacts();
+
   const onDelete = id => {
     setContacts(contacts => contacts.filter(contact => contact.id !== id));
   };
@@ -74,7 +76,7 @@ export function App() {
         <TitleSecondary>Contacts</TitleSecondary>
         <FilterContacts value={filter} onChange={changeFilter} />
         {list ? (
-          <ListContacts contacts={onFilterContacts()} onDelete={onDelete} />
+          <ListContacts contacts={filteredContacts} onDelete={onDelete} />
         ) : (
           <Text>There’s nothing here yet...</Text>
         )}
