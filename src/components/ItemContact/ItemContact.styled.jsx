@@ -26,6 +26,7 @@ export const ButtonDelete = styled.button`
   justify-content: center;
   align-items: center;
   padding: ${p => p.theme.space[2]}px;
+  margin-right: ${p => p.theme.space[2]}px;
   border-radius: ${p => p.theme.radii.round};
   border: ${p => p.theme.borders.none};
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), -2px -2px 4px rgba(0, 0, 0, 0.15);
